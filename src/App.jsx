@@ -6,12 +6,14 @@ import Dashboard from "./pages/Dashboard";
 import PieChart from "./pages/PieChart";
 import AreaChart from "./pages/AreaChart";
 import { ContextProvider } from "./contexts/ContextProvider";
+import Error from "./pages/Error";
 
 // Define routes correctly using createBrowserRouter
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
