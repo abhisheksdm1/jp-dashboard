@@ -129,36 +129,38 @@ const Dashboard = () => {
             <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
               Dashboard Bar Chart Overview
             </h2>
-            <div className="w-full h-[400px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  data={chartData}
-                  margin={{ top: 20, right: 30, left: 10, bottom: 80 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis
-                    dataKey="name"
-                    angle={-45}
-                    textAnchor="end"
-                    interval={0}
-                    height={90}
-                    tick={{ fontSize: 10 }}
-                  />
-                  <YAxis
-                    ticks={[
-                      0, 50, 100, 500, 1000, 2000, 6000, 13000, 19000, 25000,
-                      35000,
-                    ]}
-                    domain={[0, 35000]}
-                  />
-                  <Tooltip />
-                  <Bar
-                    dataKey="value"
-                    fill={currentColor}
-                    radius={[6, 6, 0, 0]}
-                  />
-                </BarChart>
-              </ResponsiveContainer>
+
+            {/* Outer scrollable wrapper */}
+            <div className="overflow-x-auto">
+              {/* Inner fixed-width container */}
+              <div className="w-[1200px] md:w-full h-[400px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={chartData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis
+                      dataKey="name"
+                      angle={-45}
+                      textAnchor="end"
+                      interval={0}
+                      height={90}
+                      tick={{ fontSize: 10 }}
+                    />
+                    <YAxis
+                      ticks={[
+                        0, 50, 100, 500, 1000, 2000, 6000, 13000, 19000, 25000,
+                        35000,
+                      ]}
+                      domain={[0, 35000]}
+                    />
+                    <Tooltip />
+                    <Bar
+                      dataKey="value"
+                      fill={currentColor}
+                      radius={[6, 6, 0, 0]}
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
             </div>
           </div>
 
