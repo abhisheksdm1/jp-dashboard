@@ -16,14 +16,30 @@ import useFetch from "../hooks/useFetch";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const COLORS = [
-  "#0088FE",
-  "#00C49F",
-  "#FFBB28",
-  "#FF8042",
-  "#AA00FF",
-  "#FF4C4C",
-  "#00D1B2",
-  "#FF69B4",
+  "#ff4000",
+  "#ff8000",
+  "#ffbf00",
+  "#ffff00",
+  "#bfff00",
+  "#80ff00",
+  "#40ff00",
+  "#00ff00",
+  "#00ff40",
+  "#00ff80",
+  "#00ffbf",
+  "#00ffff",
+  "#00bfff",
+  "#0080ff",
+  "#0040ff",
+  "#0000ff",
+  "#4000ff",
+  "#8000ff",
+  "#bf00ff",
+  "#ff00ff",
+  "#ff00bf",
+  "#ff0080",
+  "#ff0040",
+  "#ff0000",
 ];
 
 const StatCard = ({ label, value, color }) => (
