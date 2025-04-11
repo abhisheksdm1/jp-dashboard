@@ -82,6 +82,22 @@ const Dashboard = () => {
       value: item.value,
     }));
 
+  const renderCustomLegend = ({ payload }) => (
+    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-sm mt-4 justify-items-center">
+      {payload.map((entry, index) => (
+        <li key={`item-${index}`} className="flex items-center space-x-2">
+          <div
+            className="w-3 h-3 rounded-sm"
+            style={{ backgroundColor: entry.color }}
+          />
+          <span className="text-gray-700 dark:text-white truncate">
+            {entry.value}
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+
   return (
     <div className="p-8 flex flex-col md:p-8 bg-gray-100 dark:bg-gray-900">
       <div className="flex">
@@ -147,22 +163,22 @@ const Dashboard = () => {
           </div>
 
           {/* Pie Chart */}
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md ">
             <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
               Dashboard Pie Chart Overview
             </h2>
-            <div className="w-full h-[400px]">
+            <div className="w-full h-[1000px] sm:h-[800px] md:h-[600px]">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Tooltip />
-                  <Legend />
+                  <Legend content={renderCustomLegend} />
                   <Pie
                     data={chartData} // Show only top 8 for clarity
                     dataKey="value"
                     nameKey="name"
                     cx="50%"
                     cy="50%"
-                    outerRadius={130}
+                    outerRadius={75}
                     label
                   >
                     {chartData.map((entry, index) => (
