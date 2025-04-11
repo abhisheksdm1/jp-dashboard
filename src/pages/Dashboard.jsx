@@ -197,7 +197,7 @@ const Dashboard = () => {
                     cx="50%"
                     cy="50%"
                     outerRadius={75}
-                    label
+                    label={false}
                   >
                     {chartData.map((entry, index) => (
                       <Cell
