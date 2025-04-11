@@ -58,6 +58,8 @@ const Dashboard = () => {
   const apiUrl = import.meta.env.VITE_API_URL;
   const { data, loading, error } = useFetch(apiUrl);
   const [analyticsMode, setAnalyticsMode] = useState(false);
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
+  console.log(screenSize);
 
   if (loading) {
     return (
@@ -196,7 +198,7 @@ const Dashboard = () => {
                     nameKey="name"
                     cx="50%"
                     cy="50%"
-                    outerRadius={75}
+                    outerRadius={screenSize > 900 ? 150 : 70}
                     label={false}
                   >
                     {chartData.map((entry, index) => (
