@@ -119,14 +119,23 @@ const Dashboard = () => {
   return (
     <div className="p-8 flex flex-col md:p-8 bg-gray-100 dark:bg-gray-900">
       <div className="flex">
-        <span
-          className={`p-2 mr-2 mb-5 text-white cursor-pointer ${
-            analyticsMode ? "bg-[#03C9D7]" : " bg-[#00C49F]"
+        {!analyticsMode ? (
+          <span
+            className={`p-2 mr-2 mb-5 text-white cursor-pointer bg-[#03C9D7]
           }`}
-          onClick={() => setAnalyticsMode((prev) => !prev)}
-        >
-          Analytics Mode{" "}
-        </span>
+            onClick={() => setAnalyticsMode((prev) => !prev)}
+          >
+            Analytics Mode{" "}
+          </span>
+        ) : (
+          <span
+            className={`p-2 mr-2 mb-5 text-white cursor-pointer bg-[#03C9D7] 
+          }`}
+            onClick={() => setAnalyticsMode((prev) => !prev)}
+          >
+            card Mode{" "}
+          </span>
+        )}
       </div>
 
       {!analyticsMode ? (
